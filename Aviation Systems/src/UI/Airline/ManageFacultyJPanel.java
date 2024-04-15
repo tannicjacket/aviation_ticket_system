@@ -4,17 +4,50 @@
  */
 package UI.Airline;
 
+import Airline.AirlineCompany;
+import Business.AirlineBusiness;
+import Faculty.FacultyProfile;
+import java.awt.CardLayout;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author martta
  */
 public class ManageFacultyJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
+    AirlineCompany ac;
     /**
      * Creates new form ManageFacultyJPanel
      */
-    public ManageFacultyJPanel() {
+    public ManageFacultyJPanel(AirlineBusiness ab,JPanel mainWorkArea,AirlineCompany ac) {
         initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;  
+        this.ac = ac;
+        
+        populateTable();
+    }
+    
+    public void populateTable() {
+        List<FacultyProfile> facultyList = ac.getFacultyDirectory().getAllFaculty(); // get current login company
+
+        DefaultTableModel model = (DefaultTableModel) tblFaculty.getModel();
+        model.setRowCount(0);
+
+        for (FacultyProfile faculty : facultyList) {
+            Object[] row = new Object[4];
+            row[0] = faculty.getId();
+            row[1] = faculty.getName();
+            row[2] = ac.getName(); 
+            row[3] = faculty.getRole();
+
+            model.addRow(row);
+        }
     }
 
     /**
@@ -112,14 +145,38 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
 
     private void btnAddNewFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewFacultyActionPerformed
         // TODO add your handling code here:
+        AddNewFacultyJPanel afjp = new AddNewFacultyJPanel(ac,mainWorkArea);
+        mainWorkArea.add("AddNewFacultyJPanel",afjp);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnAddNewFacultyActionPerformed
 
     private void btnUpdateFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateFacultyActionPerformed
         // TODO add your handling code here:
+        UpdateFacultyJPanel ufjp = new UpdateFacultyJPanel(ac,mainWorkArea);
+        mainWorkArea.add("UpdateFacultyJPanel",ufjp);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+        
     }//GEN-LAST:event_btnUpdateFacultyActionPerformed
 
     private void btnDeleteFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFacultyActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblFaculty.getSelectedRow();
+        if (selectedRow >= 0) {
+            String id = (String) tblFaculty.getValueAt(selectedRow, 0);
+
+            boolean isDeleted = ac.getFacultyDirectory().deleteFacultyById(id);
+
+            if (isDeleted) {
+                JOptionPane.showMessageDialog(this, "Faculty deleted successfully!");
+                populateTable(); 
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to delete faculty.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a faculty to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteFacultyActionPerformed
 
 

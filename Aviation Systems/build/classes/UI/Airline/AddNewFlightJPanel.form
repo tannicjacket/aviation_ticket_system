@@ -16,6 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -26,33 +31,38 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Date" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="lblDepartureTime" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAvailableSeats1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRole" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cbDepartureTime" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Component id="cbArrivalTime" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Component id="txtAvailableSeats" min="-2" pref="111" max="-2" attributes="0"/>
+                          <Component id="cbDate" min="-2" pref="206" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="508" max="32767" attributes="0"/>
-              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+              <EmptySpace pref="316" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblAvailableSeats" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="txtAvailableSeats" min="-2" pref="111" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblRole" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="txtArrivalTime" min="-2" pref="111" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblDepartureTime" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="txtDepartureTime" min="-2" pref="111" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblAge" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -69,7 +79,7 @@
                           <Component id="txtFlightNumber" min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="257" max="32767" attributes="0"/>
+                  <EmptySpace pref="392" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -81,7 +91,27 @@
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblAddNewFligth" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="251" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Date" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbDate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblDepartureTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbDepartureTime" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbArrivalTime" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtAvailableSeats" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="lblAvailableSeats1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="88" max="32767" attributes="0"/>
               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
           </Group>
@@ -102,22 +132,7 @@
                       <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDestination" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDepartureTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDepartureTime" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtArrivalTime" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAvailableSeats" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAvailableSeats" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="76" max="32767" attributes="0"/>
+                  <EmptySpace pref="392" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -161,11 +176,6 @@
         <Property name="text" type="java.lang.String" value="Departure Time"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDepartureTime">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDepartureTimeActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblRole">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -175,18 +185,13 @@
         <Property name="text" type="java.lang.String" value="Arrival Time"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtArrivalTime">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtArrivalTimeActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAvailableSeats">
+    <Component class="javax.swing.JLabel" name="Date">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Helvetica Neue" size="13" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Available Seats"/>
+        <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblWorkID">
@@ -228,6 +233,60 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add New Flight"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbDepartureTime">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbArrivalTime">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAvailableSeats1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="13" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="Seat Capacity"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbDate">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

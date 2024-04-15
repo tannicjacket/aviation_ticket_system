@@ -5,8 +5,14 @@
  */
 package UI.Distributor;
 
+import Business.AirlineBusiness;
+import Distributor.Distributor;
+import UI.Admin.ManageAirlineJPanel;
 import UI.Airline.*;
 import UI.Faculty.*;
+import UI.LoginInJPanel;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 
 
@@ -15,17 +21,15 @@ import UI.Faculty.*;
  * @author Rushabh
  */
 public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
+    Distributor dis;
     
-    // MasterOrderCatalog masterOrderCatalog;
-
-    /**
-     * Creates new form ProductManagerWorkAreaJPanel
-     */
-
-    public DistributorWorkAreaJPanel() {
-        
-        
+    public DistributorWorkAreaJPanel(AirlineBusiness ab,JPanel mainWorkArea,Distributor dis) {
+        initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;       
+        this.dis = dis;
     }
 
    
@@ -42,9 +46,9 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane = new javax.swing.JSplitPane();
         menuBar = new javax.swing.JPanel();
-        btnLogOut = new javax.swing.JButton();
-        BtnManagePrice = new javax.swing.JButton();
+        btnManagePrice = new javax.swing.JButton();
         btnViewSalesreport = new javax.swing.JButton();
+        btnlogout = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
         splitPane.setDividerLocation(50);
@@ -52,16 +56,26 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
 
         menuBar.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnLogOut.setText("Log Out");
-        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+        btnManagePrice.setText("Manage Price");
+        btnManagePrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogOutActionPerformed(evt);
+                btnManagePriceActionPerformed(evt);
             }
         });
 
-        BtnManagePrice.setText("Manage Price");
-
         btnViewSalesreport.setText("View Sales Report");
+        btnViewSalesreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewSalesreportActionPerformed(evt);
+            }
+        });
+
+        btnlogout.setText("Logout");
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -69,21 +83,21 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(BtnManagePrice)
+                .addComponent(btnManagePrice)
                 .addGap(30, 30, 30)
                 .addComponent(btnViewSalesreport)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
-                .addComponent(btnLogOut)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addComponent(btnlogout)
+                .addGap(23, 23, 23))
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogOut)
-                    .addComponent(BtnManagePrice)
-                    .addComponent(btnViewSalesreport))
+                    .addComponent(btnManagePrice)
+                    .addComponent(btnViewSalesreport)
+                    .addComponent(btnlogout))
                 .addContainerGap())
         );
 
@@ -115,36 +129,39 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageProductCatalogActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnManageProductCatalogActionPerformed
+    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+
+        mainWorkArea.removeAll();
+        LoginInJPanel ljp = new LoginInJPanel(ab,mainWorkArea);
+        mainWorkArea.add("LoginInJPanel",ljp);
+        ((java.awt.CardLayout) mainWorkArea.getLayout()).next(mainWorkArea);
+    }//GEN-LAST:event_btnlogoutActionPerformed
+
+    private void btnManagePriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePriceActionPerformed
+        // TODO add your handling code here:         
+        PriceManagementJPanel pmjp = new PriceManagementJPanel(ab,workArea,dis);
+        workArea.add("PriceManagementJPanel",pmjp);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }//GEN-LAST:event_btnManagePriceActionPerformed
+
+    private void btnViewSalesreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSalesreportActionPerformed
         // TODO add your handling code here:
-        
-    }// GEN-LAST:event_btnManageProductCatalogActionPerformed
+        ViewSalesReportJPanel vsrjp = new ViewSalesReportJPanel(ab,workArea,dis);
+        workArea.add("ViewSalesReportJPanel",vsrjp);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }//GEN-LAST:event_btnViewSalesreportActionPerformed
 
-    private void PerformanceActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PerformanceActionPerformed
-        // TODO add your handling code here:
-        // ProductReportJPanel prjp = new workArea(userProcessContainer, supplier);
-        // workArea.add("ProductReportJPanelSupplier", prjp);
-        // CardLayout layout = (CardLayout)workArea.getLayout();
-        // layout.next(userProcessContainer);
-    }// GEN-LAST:event_PerformanceActionPerformed
 
-    private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSupplierProfileActionPerformed
-        
-    }// GEN-LAST:event_btnSupplierProfileActionPerformed
 
-    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogOutActionPerformed
-        // TODO add your handling code here:
-
-       
-
-    }// GEN-LAST:event_btnLogOutActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnManagePrice;
-    private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnManagePrice;
     private javax.swing.JButton btnViewSalesreport;
+    private javax.swing.JButton btnlogout;
     private javax.swing.JPanel menuBar;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;

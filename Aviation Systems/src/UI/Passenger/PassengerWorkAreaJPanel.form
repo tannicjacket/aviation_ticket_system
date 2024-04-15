@@ -68,9 +68,13 @@
                       <Component id="btnBookTickets" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBookRoundTrip" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="387" max="32767" attributes="0"/>
-                      <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnBookConnecting" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnOrder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnlogout" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -79,9 +83,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnBookRoundTrip" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnBookTickets" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnlogout" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBookConnecting" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnOrder" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -89,23 +95,45 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnLogOut">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Log Out"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="btnBookRoundTrip">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Book Round Trip"/>
+                <Property name="text" type="java.lang.String" value="Book RoundTrip Tickets"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookRoundTripActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBookTickets">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Book Tickets"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookTicketsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnlogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBookConnecting">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Book ConnectingTrip Tickets"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookConnectingActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnOrder">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="View My Order"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

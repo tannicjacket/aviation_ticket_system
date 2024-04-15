@@ -54,7 +54,7 @@
                           <Component id="lblAddNewFaculty" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                      <Component id="BtnAdd" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -101,7 +101,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCompany" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCompany" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="BtnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
@@ -198,12 +198,12 @@
         <Property name="text" type="java.lang.String" value="Add New Faculty"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnAdd">
+    <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">

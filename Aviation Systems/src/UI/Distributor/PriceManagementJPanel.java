@@ -4,18 +4,111 @@
  */
 package UI.Distributor;
 
+import Airline.AirlineCompany;
+import Business.AirlineBusiness;
+import Distributor.ADAssignment;
+import Distributor.Distributor;
+import Flight.Flight;
+import Ticket.CabinClass;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author martta
  */
 public class PriceManagementJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
+    Distributor dis;
     /**
      * Creates new form PriceManagementJPanel
      */
-    public PriceManagementJPanel() {
+    public PriceManagementJPanel(AirlineBusiness ab,JPanel mainWorkArea,Distributor dis) {
         initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;      
+        this.dis = dis;
+        
+       // populatePricesTable();
+        populateMonthComboBox();
+        populateAdjustComboBox();
+        populatePercentageComboBox();
+        populatePricesTable();
+        
     }
+    
+    private void populateAdjustComboBox() {
+        String[] adjustOptions = new String[] {"Raise", "Decrease"};
+        cmbAdjust.setModel(new javax.swing.DefaultComboBoxModel<>(adjustOptions));
+    }
+    
+    private void populatePercentageComboBox() {
+        String[] percentages = new String[] {"10%", "30%", "50%"};
+        cmbPercentage.setModel(new javax.swing.DefaultComboBoxModel<>(percentages));
+    }
+
+
+    private void populateMonthComboBox() {
+        String[] months = {"All Year", "January", "February", "March", "April", "May", "June",
+                           "July", "August", "September", "October", "November", "December"};
+        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(months));
+        cmbMonth.setSelectedIndex(0); // Set default to 'All Year'
+    }
+
+
+    
+    
+    private AirlineCompany findAssociatedAirlineCompany() {
+        for (ADAssignment assignment : ab.getADassignmentDirectory().getAssignments()) {
+            if (assignment.getDistributor().equals(dis)) {
+                return assignment.getAirlineCompany();
+            }
+        }
+        return null; 
+    }
+    
+    private void populatePricesTable() {
+        AirlineCompany company = findAssociatedAirlineCompany();
+        if (company == null) {
+            JOptionPane.showMessageDialog(this, "No associated airline company found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblPrices.getModel();
+        model.setRowCount(0);
+
+        String selectedMonth = cmbMonth.getSelectedItem().toString();
+        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMMM", Locale.ENGLISH); // Ensure using English locale
+
+        boolean allYear = selectedMonth.equals("All Year");
+
+        for (Flight flight : company.getFlightDirectory().getFlights()) {
+            String flightMonth = allYear ? "All Year" : monthFormatter.format(flight.getDepartureTime());
+            if (allYear || flightMonth.equalsIgnoreCase(selectedMonth)) {
+                double discountRate = dis.getDiscountRate(); // Discount of current distributor
+                double firstClassPrice = flight.getPriceByCabinClass(CabinClass.FIRST_CLASS) * (1 - discountRate);
+                double businessClassPrice = flight.getPriceByCabinClass(CabinClass.BUSINESS) * (1 - discountRate);
+                double economyClassPrice = flight.getPriceByCabinClass(CabinClass.ECONOMY) * (1 - discountRate);
+
+                Object[] row = {
+                    flight.getFlightNumber(),
+                    allYear ? "All Year" : flightMonth,
+                    String.format("%.2f", firstClassPrice),
+                    String.format("%.2f", businessClassPrice),
+                    String.format("%.2f", economyClassPrice)
+                };
+                model.addRow(row);
+            }
+        }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,11 +121,13 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
 
         lblPriceManagement = new javax.swing.JLabel();
         lblMonth = new javax.swing.JLabel();
-        cmbMonth = new javax.swing.JComboBox<>();
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPrices = new javax.swing.JTable();
         btnEdit = new javax.swing.JButton();
+        cmbMonth = new javax.swing.JComboBox<>();
+        cmbAdjust = new javax.swing.JComboBox<>();
+        cmbPercentage = new javax.swing.JComboBox<>();
 
         lblPriceManagement.setText("Price Management");
 
@@ -40,14 +135,12 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
         lblMonth.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMonth.setText("Month:");
 
-        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbMonth.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbMonthActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-
-        btnSearch.setText("Search");
 
         tblPrices.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,11 +156,38 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPrices);
 
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        cmbMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMonthActionPerformed(evt);
+            }
+        });
+
+        cmbAdjust.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAdjustActionPerformed(evt);
+            }
+        });
+
+        cmbPercentage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPercentageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -76,20 +196,19 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(lblMonth)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(btnSearch)))
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmbPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbAdjust, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(btnEdit)
-                .addGap(54, 54, 54))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGap(139, 139, 139))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,18 +216,23 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addComponent(lblPriceManagement)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMonth)
-                    .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
-                .addComponent(btnEdit)
-                .addGap(100, 100, 100))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(141, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cmbAdjust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMonth)
+                            .addComponent(btnSearch)
+                            .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(btnEdit)
+                        .addGap(76, 76, 76))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,11 +240,63 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbMonthActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        populatePricesTable();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void cmbAdjustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAdjustActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAdjustActionPerformed
+
+    private void cmbPercentageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPercentageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPercentageActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        // filter for increase/decrease and amount of adjustment
+        String adjustType = (String) cmbAdjust.getSelectedItem();
+        String percentageString = (String) cmbPercentage.getSelectedItem();
+        double percentage = Integer.parseInt(percentageString.replace("%", "")) / 100.0;
+        boolean increase = adjustType.equals("Raise");
+
+        // Get selected month or all year
+        String selectedMonth = (String) cmbMonth.getSelectedItem();
+        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMMM", Locale.ENGLISH);
+
+        AirlineCompany company = findAssociatedAirlineCompany();
+        if (company == null) {
+            JOptionPane.showMessageDialog(this, "No associated airline company found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        boolean anyFlightAdjusted = false;
+
+        // Adjust prices based on selection
+        for (Flight flight : company.getFlightDirectory().getFlights()) {
+            if (selectedMonth.equals("All Year") || monthFormatter.format(flight.getDepartureTime()).equalsIgnoreCase(selectedMonth)) {
+                flight.adjustTicketPricesByUser(percentage, increase);
+                anyFlightAdjusted = true;
+            }
+        }
+
+        // Refresh table and show message
+        if (anyFlightAdjusted) {
+            populatePricesTable();
+            JOptionPane.showMessageDialog(this, "Prices adjusted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "No flights found in selected month to adjust.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JComboBox<Object> cmbAdjust;
+    private javax.swing.JComboBox<Object> cmbMonth;
+    private javax.swing.JComboBox<Object> cmbPercentage;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMonth;
     private javax.swing.JLabel lblPriceManagement;

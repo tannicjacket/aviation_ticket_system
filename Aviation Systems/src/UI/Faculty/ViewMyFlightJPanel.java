@@ -4,17 +4,53 @@
  */
 package UI.Faculty;
 
+import Business.AirlineBusiness;
+import Faculty.FacultyFlightAssignment;
+import Faculty.FacultyProfile;
+import Flight.Flight;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author martta
  */
 public class ViewMyFlightJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
+    FacultyProfile fp;
     /**
      * Creates new form ViewMyFlightJPanel
      */
-    public ViewMyFlightJPanel() {
+    public ViewMyFlightJPanel(AirlineBusiness ab,JPanel mainWorkArea,FacultyProfile fp) {
         initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;   
+        this.fp = fp;
+        
+        populateTable();
+    }
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblFlights.getModel();
+        model.setRowCount(0); 
+
+
+        List<FacultyFlightAssignment> assignments = ab.getffaDirectory().getAssignmentsByFacultyId(fp.getId());
+
+        for (FacultyFlightAssignment assignment : assignments) {
+            Flight flight = assignment.getFlight();
+            Object[] row = new Object[5]; 
+            row[0] = flight.getDepartureTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+            row[1] = flight.getArrivalTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+            row[2] = flight.getDepartureStation().getCityName();
+            row[3] = flight.getArrivalStation().getCityName();
+            row[4] = flight.getDepartureTime().toLocalDate(); 
+
+            model.addRow(row);
+        }
     }
 
     /**
@@ -38,7 +74,7 @@ public class ViewMyFlightJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Departure Time", "Arrival Time", "Departure Airport", "Destination", "Time"
+                "Departure Time", "Arrival Time", "Departure Airport", "Destination", "Date"
             }
         ));
         jScrollPane1.setViewportView(tblFlights);

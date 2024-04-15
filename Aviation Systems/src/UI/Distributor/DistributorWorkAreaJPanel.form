@@ -65,12 +65,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="BtnManagePrice" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnManagePrice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnViewSalesreport" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="358" max="32767" attributes="0"/>
-                      <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace pref="386" max="32767" attributes="0"/>
+                      <Component id="btnlogout" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -79,9 +79,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BtnManagePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManagePrice" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnViewSalesreport" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnlogout" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -89,23 +89,29 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnLogOut">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Log Out"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="BtnManagePrice">
+            <Component class="javax.swing.JButton" name="btnManagePrice">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Price"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManagePriceActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnViewSalesreport">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View Sales Report"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewSalesreportActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnlogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

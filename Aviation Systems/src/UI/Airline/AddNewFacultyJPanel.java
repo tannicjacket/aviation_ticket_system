@@ -1,20 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UI.Airline;
+
+import Airline.AirlineCompany;
+import Faculty.FacultyProfile;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author martta
  */
 public class AddNewFacultyJPanel extends javax.swing.JPanel {
-
+    AirlineCompany ac;
+    JPanel mainWorkArea;
     /**
      * Creates new form AddNewFacultyJPanel
      */
-    public AddNewFacultyJPanel() {
+    public AddNewFacultyJPanel(AirlineCompany ac,JPanel mainWorkArea) {
         initComponents();
+        this.ac = ac;
+        this.mainWorkArea = mainWorkArea;
+        
+        txtCompany.setText(ac.getName());
+        txtCompany.setEditable(false); 
+    }
+    
+    private void clearFields() {
+        txtWorkID.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtRole.setText("");
     }
 
     /**
@@ -39,7 +55,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
         txtGender = new javax.swing.JTextField();
         lblRole = new javax.swing.JLabel();
         lblAddNewFaculty = new javax.swing.JLabel();
-        BtnAdd = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         txtRole.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +120,10 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
 
         lblAddNewFaculty.setText("Add New Faculty");
 
-        BtnAdd.setText("Add");
-        BtnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -153,7 +169,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
                                 .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblAddNewFaculty))
                         .addGap(103, 103, 103)
-                        .addComponent(BtnAdd))
+                        .addComponent(btnAdd))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(btnBack)))
@@ -190,7 +206,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCompany)
                     .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnAdd))
+                    .addComponent(btnAdd))
                 .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -219,17 +235,44 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenderActionPerformed
 
-    private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAddActionPerformed
+        String id = txtWorkID.getText().trim();
+        String name = txtName.getText().trim();
+        String ageText = txtAge.getText().trim();
+        String gender = txtGender.getText().trim();
+        String role = txtRole.getText().trim();
+
+        if (id.isEmpty() || name.isEmpty() || ageText.isEmpty() || gender.isEmpty() || role.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields must be filled!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int age;
+        try {
+            age = Integer.parseInt(ageText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid age.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        FacultyProfile newFaculty = new FacultyProfile(id, name, gender, age, "", role, ac);
+        ac.getFacultyDirectory().addFaculty(newFaculty);
+
+        JOptionPane.showMessageDialog(this, "New faculty added successfully!");
+        clearFields(); 
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        mainWorkArea.remove(this);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAdd;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel lblAddNewFaculty;
     private javax.swing.JLabel lblAge;
