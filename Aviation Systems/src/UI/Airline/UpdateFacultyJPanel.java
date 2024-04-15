@@ -4,17 +4,31 @@
  */
 package UI.Airline;
 
+import Airline.AirlineCompany;
+import Faculty.FacultyProfile;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author martta
  */
 public class UpdateFacultyJPanel extends javax.swing.JPanel {
-
+    AirlineCompany ac;
+    JPanel mainWorkArea;
+    
+    
     /**
      * Creates new form AddNewFacultyJPanel
      */
-    public UpdateFacultyJPanel() {
+    public UpdateFacultyJPanel(AirlineCompany ac,JPanel mainWorkArea) {
         initComponents();
+        this.ac = ac;
+        this.mainWorkArea = mainWorkArea;
+        
+        txtCompany.setText(ac.getName());
+        txtCompany.setEditable(false); 
     }
 
     /**
@@ -39,7 +53,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
         txtGender = new javax.swing.JTextField();
         lblRole = new javax.swing.JLabel();
         lblUpdateFaculty = new javax.swing.JLabel();
-        BtnUpdate = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         txtRole.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +118,10 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
 
         lblUpdateFaculty.setText("Update Faculty");
 
-        BtnUpdate.setText("Update");
-        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnUpdateActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -153,7 +167,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
                                 .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblUpdateFaculty))
                         .addGap(103, 103, 103)
-                        .addComponent(BtnUpdate))
+                        .addComponent(btnUpdate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(btnBack)))
@@ -190,7 +204,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCompany)
                     .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnUpdate))
+                    .addComponent(btnUpdate))
                 .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -219,18 +233,52 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenderActionPerformed
 
-    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnUpdateActionPerformed
+        String id = txtWorkID.getText().trim();
+        String name = txtName.getText().trim();
+        String ageText = txtAge.getText().trim();
+        String gender = txtGender.getText().trim();
+        String role = txtRole.getText().trim();
+
+        if (id.isEmpty() || name.isEmpty() || ageText.isEmpty() || gender.isEmpty() || role.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields must be filled!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int age;
+        try {
+            age = Integer.parseInt(ageText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid age.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        FacultyProfile faculty = ac.getFacultyDirectory().findFacultyById(id);
+        if (faculty == null) {
+            JOptionPane.showMessageDialog(this, "No faculty found with the provided ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        faculty.setName(name);
+        faculty.setAge(age);
+        faculty.setGender(gender);
+        faculty.setRole(role);
+
+        JOptionPane.showMessageDialog(this, "Faculty information updated successfully!");
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        mainWorkArea.remove(this);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnUpdate;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblGender;

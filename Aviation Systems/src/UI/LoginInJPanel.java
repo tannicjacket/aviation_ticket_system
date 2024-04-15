@@ -4,17 +4,49 @@
  */
 package UI;
 
+import Airline.AirlineCompany;
+import Business.AirlineBusiness;
+import Distributor.Distributor;
+import Faculty.FacultyProfile;
+import Passenger.PassengerProfile;
+import UI.Admin.AdminWorkAreaJPanel;
+import UI.Airline.AirlineWorkAreaJPanel;
+import UI.Distributor.DistributorWorkAreaJPanel;
+import UI.Faculty.FacultyWorkAreaJPanel;
+import UI.Passenger.PassengerWorkAreaJPanel;
+import User.Identifiable;
+import User.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author martta
  */
 public class LoginInJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
     /**
      * Creates new form LoginInJPanel
      */
-    public LoginInJPanel() {
+    public LoginInJPanel(AirlineBusiness ab,JPanel mainWorkArea) {
         initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;
+    }
+    
+    private JPanel getWorkAreaPanel(Identifiable profile) {
+        if (profile instanceof AirlineCompany) {
+            return new AirlineWorkAreaJPanel(ab, mainWorkArea,(AirlineCompany)profile);
+        } else if (profile instanceof Distributor) {
+            return new DistributorWorkAreaJPanel(ab, mainWorkArea,(Distributor) profile);
+        } else if (profile instanceof FacultyProfile) {
+            return new FacultyWorkAreaJPanel(ab, mainWorkArea,(FacultyProfile) profile);
+        } else if (profile instanceof PassengerProfile) {
+            return new PassengerWorkAreaJPanel(ab, mainWorkArea, (PassengerProfile) profile);
+        }
+        return null;
     }
 
     /**
@@ -58,6 +90,11 @@ public class LoginInJPanel extends javax.swing.JPanel {
         });
 
         btnLogin.setText("Log in");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,6 +147,43 @@ public class LoginInJPanel extends javax.swing.JPanel {
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String un = txtUsername.getText();
+        String id = txtID.getText();
+        String password = new String(txtPassword.getPassword());
+        
+        // Different logic for admin
+        AdminWorkAreaJPanel adwajp;
+        if (un.startsWith("ad")) {
+            adwajp = new AdminWorkAreaJPanel(ab, mainWorkArea);
+            mainWorkArea.removeAll();
+            mainWorkArea.add("AdminWorkAreaJPanel", adwajp);
+            ((java.awt.CardLayout) mainWorkArea.getLayout()).next(mainWorkArea);
+            return;
+        }
+
+        // Authenticate other users
+        UserAccount userAccount = ab.getUaDirectory().authenticateUser(id, password);
+        if (userAccount == null) {
+            JOptionPane.showMessageDialog(null, "Invalid ID or password", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        JPanel workAreaPanel = getWorkAreaPanel(userAccount.getIdentifiable());
+
+        if (workAreaPanel != null) {
+            mainWorkArea.removeAll();
+            mainWorkArea.add(workAreaPanel.getClass().getName(), workAreaPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
+        } else {
+            JOptionPane.showMessageDialog(null, "No valid user profile found.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+       
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

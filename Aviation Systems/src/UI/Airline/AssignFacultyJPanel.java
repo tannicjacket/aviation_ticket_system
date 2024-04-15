@@ -4,17 +4,26 @@
  */
 package UI.Airline;
 
+import Airline.AirlineCompany;
+import Business.AirlineBusiness;
+import javax.swing.JPanel;
+
 /**
  *
  * @author martta
  */
 public class AssignFacultyJPanel extends javax.swing.JPanel {
-
+    JPanel mainWorkArea;
+    AirlineBusiness ab;
+    AirlineCompany ac;
     /**
      * Creates new form AssignFacultyJPanel
      */
-    public AssignFacultyJPanel() {
+    public AssignFacultyJPanel(AirlineBusiness ab,JPanel mainWorkArea,AirlineCompany ac) {
         initComponents();
+        this.ab = ab;
+        this.mainWorkArea = mainWorkArea;    
+        this.ac = ac;
     }
 
     /**

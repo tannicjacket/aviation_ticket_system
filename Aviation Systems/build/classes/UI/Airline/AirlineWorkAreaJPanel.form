@@ -70,9 +70,9 @@
                       <Component id="btnAssignFaculty" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnMngFlight" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="261" max="32767" attributes="0"/>
-                      <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace pref="260" max="32767" attributes="0"/>
+                      <Component id="btnlogout" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -81,10 +81,10 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAssignFaculty" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnMngFaculty" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnMngFlight" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnlogout" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -92,28 +92,37 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnLogOut">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Log Out"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="btnAssignFaculty">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Assign Faculty"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssignFacultyActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnMngFaculty">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Faculty"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMngFacultyActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnMngFlight">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Flight"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMngFlightActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnlogout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
