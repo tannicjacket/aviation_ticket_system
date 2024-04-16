@@ -65,12 +65,13 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblViewLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFlights = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblViewLabel.setText("View My Orders");
+        setBackground(new java.awt.Color(242, 249, 255));
 
+        tblFlights.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         tblFlights.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -84,6 +85,10 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblFlights);
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("View My Booking Orders");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,25 +98,25 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblViewLabel)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblViewLabel)
-                .addGap(28, 28, 28)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(66, 66, 66)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblViewLabel;
     private javax.swing.JTable tblFlights;
     // End of variables declaration//GEN-END:variables
 }

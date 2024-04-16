@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "dist/lib/javafaker-1.0.2.jar"
+    ]
+}

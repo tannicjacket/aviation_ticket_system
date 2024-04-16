@@ -4,51 +4,17 @@
  */
 package UI.Faculty;
 
-import Business.AirlineBusiness;
-import Faculty.FacultyProfile;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 /**
  *
  * @author martta
  */
 public class UpdateMyProfileJPanel extends javax.swing.JPanel {
-    JPanel mainWorkArea;
-    AirlineBusiness ab;
-    FacultyProfile fp;
+
     /**
      * Creates new form UpdateMyProfileJPanel
      */
-    public UpdateMyProfileJPanel(AirlineBusiness ab,JPanel mainWorkArea,FacultyProfile fp) {
+    public UpdateMyProfileJPanel() {
         initComponents();
-        this.ab = ab;
-        this.mainWorkArea = mainWorkArea;     
-        this.fp = fp;
-        
-        btnSave.setEnabled(false); 
-        btnUpdate.setEnabled(true); 
-        
-        txtWorkID.setEnabled(false);
-        txtName.setEditable(false);
-        txtAge.setEditable(false);
-        txtGender.setEditable(false);
-        txtRole.setEditable(false);
-        txtCompany.setEditable(false);
-        
-        populateProfileDetails();
-    }
-    
-    private void populateProfileDetails() {
-        txtWorkID.setText(fp.getId());
-        txtName.setText(fp.getName());
-        txtAge.setText(String.valueOf(fp.getAge())); 
-        txtGender.setText(fp.getGender());
-        txtRole.setText(fp.getRole());
-        txtCompany.setText(fp.getAirlineCompany().getName()); 
-
-        txtWorkID.setEditable(false);
-        txtCompany.setEditable(false);
     }
 
     /**
@@ -60,10 +26,10 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblViewMyFlight = new javax.swing.JLabel();
         lblWorkID = new javax.swing.JLabel();
         txtWorkID = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
         lblAge = new javax.swing.JLabel();
         txtAge = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
@@ -74,11 +40,15 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
         txtCompany = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+<<<<<<< Updated upstream
+=======
         txtName = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 
-        lblViewMyFlight.setText("Update My Profile");
+        setBackground(new java.awt.Color(242, 249, 255));
 
-        lblWorkID.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblWorkID.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblWorkID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblWorkID.setText("Work ID");
 
@@ -88,11 +58,21 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblName.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Name");
 
+<<<<<<< Updated upstream
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
         lblAge.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+=======
+        lblAge.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+>>>>>>> Stashed changes
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAge.setText("Age");
 
@@ -102,7 +82,7 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblGender.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblGender.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGender.setText("Gender");
 
@@ -112,7 +92,7 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblRole.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Role");
 
@@ -122,7 +102,7 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblCompany.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCompany.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblCompany.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCompany.setText("Company");
 
@@ -132,6 +112,7 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +120,7 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,20 +128,29 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< Updated upstream
+=======
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Update My Profile");
+
+>>>>>>> Stashed changes
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< Updated upstream
                         .addComponent(lblCompany)
                         .addGap(57, 57, 57)
                         .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,28 +166,50 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
                         .addComponent(lblAge)
                         .addGap(57, 57, 57)
                         .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblName)
+                        .addGap(57, 57, 57)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblViewMyFlight)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblWorkID)
-                                .addComponent(lblName))
+                            .addComponent(lblWorkID)
                             .addGap(57, 57, 57)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblViewMyFlight)))
                 .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSave)
                     .addComponent(btnUpdate))
                 .addContainerGap(146, Short.MAX_VALUE))
+=======
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblWorkID)
+                            .addComponent(lblName)
+                            .addComponent(lblAge)
+                            .addComponent(lblGender)
+                            .addComponent(lblRole)
+                            .addComponent(lblCompany))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(413, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(lblViewMyFlight)
-                .addGap(34, 34, 34)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWorkID)
                     .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,35 +217,37 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAge)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                    .addComponent(lblGender)
+                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRole)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSave)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGender)
-                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRole)
-                    .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCompany)
-                    .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdate)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtWorkIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWorkIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtWorkIDActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
@@ -252,52 +267,22 @@ public class UpdateMyProfileJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        try {
-            int age = Integer.parseInt(txtAge.getText()); 
-            fp.setName(txtName.getText());
-            fp.setAge(age);
-            fp.setGender(txtGender.getText());
-            fp.setRole(txtRole.getText());
-
-            txtName.setEditable(false);
-            txtAge.setEditable(false);
-            txtGender.setEditable(false);
-            txtRole.setEditable(false);
-            btnSave.setEnabled(false);
-            btnUpdate.setEnabled(true);
-
-            JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Please enter valid age.");
-        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        txtName.setEditable(true);
-        txtAge.setEditable(true);
-        txtGender.setEditable(true);
-        txtRole.setEditable(true);
-        //txtCompany.setEditable(false); // Assuming the company should not be changed
-
-        btnSave.setEnabled(true);
-        btnUpdate.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblViewMyFlight;
     private javax.swing.JLabel lblWorkID;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCompany;

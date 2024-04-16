@@ -1,22 +1,33 @@
-package UI.Admin;
-
-import Business.AirlineBusiness;
-import UI.LoginInJPanel;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-
-public class AdminWorkAreaJPanel extends javax.swing.JPanel {
-    JPanel mainWorkArea;
-    AirlineBusiness ab;
+/*
+ * ProductManagerWorkAreaJPanel.java
+ *
+ * Created on October 3, 2008, 8:06 AM
+ */
+package UI.Supplier;
 
 
-    public AdminWorkAreaJPanel(AirlineBusiness ab,JPanel mainWorkArea) {
-        initComponents();
-        this.ab = ab;
-        this.mainWorkArea = mainWorkArea;        
+
+/**
+ *
+ * @author Rushabh
+ */
+public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
+
+    
+    // MasterOrderCatalog masterOrderCatalog;
+
+    /**
+     * Creates new form ProductManagerWorkAreaJPanel
+     */
+
+    public SupplierWorkAreaJPanel() {
+        
+        
     }
 
    
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,32 +39,48 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane = new javax.swing.JSplitPane();
         menuBar = new javax.swing.JPanel();
+        btnLogOut = new javax.swing.JButton();
         btnViewFlightSchedule = new javax.swing.JButton();
+        Performance = new javax.swing.JButton();
         btnMngAirlineCompany = new javax.swing.JButton();
-        btnManageDistributor = new javax.swing.JButton();
-        btnViewAllTickets = new javax.swing.JButton();
-        btnlogout = new javax.swing.JButton();
+        BtnManageDistributor = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
         splitPane.setDividerLocation(50);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setBackground(new java.awt.Color(242, 249, 255));
+        menuBar.setPreferredSize(new java.awt.Dimension(800, 100));
 
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/SupplierWorkAreaJPanel.java
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnViewFlightSchedule.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnViewFlightSchedule.setText("View Flight Schedule");
         btnViewFlightSchedule.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/AdminWorkAreaJPanel.java
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewFlightScheduleActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
 
+        btnViewFlightSchedule.setText("View Flight Schedule");
+
+        Performance.setText("Performance");
+        Performance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PerformanceActionPerformed(evt);
+            }
+        });
+
+        btnMngAirlineCompany.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnMngAirlineCompany.setText("Manage Airline Company");
-        btnMngAirlineCompany.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMngAirlineCompanyActionPerformed(evt);
-            }
-        });
 
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/SupplierWorkAreaJPanel.java
+        BtnManageDistributor.setText("Manage Distributor");
+=======
+        btnManageDistributor.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnManageDistributor.setText("Manage Distributor");
         btnManageDistributor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +88,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewAllTickets.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnViewAllTickets.setText("View All Tickets");
         btnViewAllTickets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,12 +96,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnlogout.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         btnlogout.setText("Logout");
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlogoutActionPerformed(evt);
             }
         });
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/AdminWorkAreaJPanel.java
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -81,33 +111,45 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(btnManageDistributor)
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/SupplierWorkAreaJPanel.java
+                .addComponent(BtnManageDistributor)
                 .addGap(26, 26, 26)
+=======
+                .addComponent(btnManageDistributor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/AdminWorkAreaJPanel.java
                 .addComponent(btnMngAirlineCompany)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewFlightSchedule)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/SupplierWorkAreaJPanel.java
+                .addComponent(Performance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(46, 46, 46))
+=======
                 .addComponent(btnViewAllTickets)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(btnlogout)
                 .addGap(29, 29, 29))
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/AdminWorkAreaJPanel.java
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogOut)
+                    .addComponent(Performance)
                     .addComponent(btnViewFlightSchedule)
                     .addComponent(btnMngAirlineCompany)
-                    .addComponent(btnManageDistributor)
-                    .addComponent(btnViewAllTickets)
-                    .addComponent(btnlogout))
+                    .addComponent(BtnManageDistributor))
                 .addContainerGap())
         );
 
         splitPane.setTopComponent(menuBar);
 
-        workArea.setBackground(new java.awt.Color(255, 255, 255));
+        workArea.setBackground(new java.awt.Color(242, 249, 255));
         workArea.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(workArea);
 
@@ -133,56 +175,38 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDistributorActionPerformed
+    private void btnManageProductCatalogActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnManageProductCatalogActionPerformed
         // TODO add your handling code here:
-        ManageDistributorJPanel mdjp = new ManageDistributorJPanel(ab,workArea);
-        workArea.add("ManageDistributorJPanel",mdjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnManageDistributorActionPerformed
+        
+    }// GEN-LAST:event_btnManageProductCatalogActionPerformed
 
-    private void btnMngAirlineCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMngAirlineCompanyActionPerformed
+    private void PerformanceActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PerformanceActionPerformed
         // TODO add your handling code here:
-        ManageAirlineJPanel majp = new ManageAirlineJPanel(ab,workArea);
-        workArea.add("ManageAirlineJPanel",majp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnMngAirlineCompanyActionPerformed
+        // ProductReportJPanel prjp = new workArea(userProcessContainer, supplier);
+        // workArea.add("ProductReportJPanelSupplier", prjp);
+        // CardLayout layout = (CardLayout)workArea.getLayout();
+        // layout.next(userProcessContainer);
+    }// GEN-LAST:event_PerformanceActionPerformed
 
-    private void btnViewFlightScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFlightScheduleActionPerformed
+    private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSupplierProfileActionPerformed
+        
+    }// GEN-LAST:event_btnSupplierProfileActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        ViewFlightScheduleJPanel vfsjp = new ViewFlightScheduleJPanel(ab,workArea);
-        workArea.add("ViewFlightScheduleJPanel",vfsjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnViewFlightScheduleActionPerformed
 
-    private void btnViewAllTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllTicketsActionPerformed
-        // TODO add your handling code here:
-        ViewAllTicketsJPanel vatjp = new ViewAllTicketsJPanel(ab,workArea);
-        workArea.add("ViewAllTicketsJPanel",vatjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnViewAllTicketsActionPerformed
+       
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-
-        mainWorkArea.removeAll();
-        LoginInJPanel ljp = new LoginInJPanel(ab,mainWorkArea);
-        mainWorkArea.add("LoginInJPanel",ljp);
-        ((java.awt.CardLayout) mainWorkArea.getLayout()).next(mainWorkArea);
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
-
+    }// GEN-LAST:event_btnLogOutActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageDistributor;
+    private javax.swing.JButton BtnManageDistributor;
+    private javax.swing.JButton Performance;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnMngAirlineCompany;
-    private javax.swing.JButton btnViewAllTickets;
     private javax.swing.JButton btnViewFlightSchedule;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JPanel menuBar;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;

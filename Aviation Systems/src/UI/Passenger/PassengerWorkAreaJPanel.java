@@ -1,25 +1,34 @@
+/*
+ * ProductManagerWorkAreaJPanel.java
+ *
+ * Created on October 3, 2008, 8:06 AM
+ */
 package UI.Passenger;
 
-import Business.AirlineBusiness;
-import Passenger.PassengerProfile;
-import UI.Admin.ViewAllTicketsJPanel;
 import UI.Faculty.*;
-import UI.LoginInJPanel;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
 
 
+
+/**
+ *
+ * @author Rushabh
+ */
 public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
-    JPanel mainWorkArea;
-    AirlineBusiness ab;
-    PassengerProfile pp;
 
-    public PassengerWorkAreaJPanel(AirlineBusiness ab,JPanel mainWorkArea,PassengerProfile pp) {
-        initComponents();
-        this.ab = ab;
-        this.mainWorkArea = mainWorkArea;
-        this.pp = pp;
+    
+    // MasterOrderCatalog masterOrderCatalog;
+
+    /**
+     * Creates new form ProductManagerWorkAreaJPanel
+     */
+
+    public PassengerWorkAreaJPanel() {
+        
+        
     }
+
+   
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,25 +41,35 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane = new javax.swing.JSplitPane();
         menuBar = new javax.swing.JPanel();
+        btnLogOut = new javax.swing.JButton();
         btnBookRoundTrip = new javax.swing.JButton();
         btnBookTickets = new javax.swing.JButton();
-        btnlogout = new javax.swing.JButton();
-        btnBookConnecting = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
         splitPane.setDividerLocation(50);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setBackground(new java.awt.Color(242, 249, 255));
 
+<<<<<<< Updated upstream
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnBookRoundTrip.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBookRoundTrip.setText("Book RoundTrip Tickets");
         btnBookRoundTrip.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookRoundTripActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
+        btnBookRoundTrip.setText("Book Round Trip");
+
+        btnBookTickets.setText("Book Tickets");
+=======
+        btnBookTickets.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBookTickets.setText("Book Tickets");
         btnBookTickets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +77,7 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnlogout.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         btnlogout.setText("Logout");
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +85,7 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBookConnecting.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBookConnecting.setText("Book ConnectingTrip Tickets");
         btnBookConnecting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,12 +93,14 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnOrder.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnOrder.setText("View My Order");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderActionPerformed(evt);
             }
         });
+>>>>>>> Stashed changes
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -88,30 +111,24 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnBookTickets)
                 .addGap(18, 18, 18)
                 .addComponent(btnBookRoundTrip)
-                .addGap(18, 18, 18)
-                .addComponent(btnBookConnecting)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOrder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnlogout)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(46, 46, 46))
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogOut)
                     .addComponent(btnBookRoundTrip)
-                    .addComponent(btnBookTickets)
-                    .addComponent(btnlogout)
-                    .addComponent(btnBookConnecting)
-                    .addComponent(btnOrder))
+                    .addComponent(btnBookTickets))
                 .addContainerGap())
         );
 
         splitPane.setTopComponent(menuBar);
 
-        workArea.setBackground(new java.awt.Color(255, 255, 255));
+        workArea.setBackground(new java.awt.Color(242, 249, 255));
         workArea.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(workArea);
 
@@ -137,53 +154,36 @@ public class PassengerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-
-        mainWorkArea.removeAll();
-        LoginInJPanel ljp = new LoginInJPanel(ab,mainWorkArea);
-        mainWorkArea.add("LoginInJPanel",ljp);
-        ((java.awt.CardLayout) mainWorkArea.getLayout()).next(mainWorkArea);
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
-    private void btnBookTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookTicketsActionPerformed
+    private void btnManageProductCatalogActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnManageProductCatalogActionPerformed
         // TODO add your handling code here:
-        BookOneWayJPanel bowjp = new BookOneWayJPanel(ab,workArea,pp);
-        workArea.add("BookOneWayJPanel",bowjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnBookTicketsActionPerformed
+        
+    }// GEN-LAST:event_btnManageProductCatalogActionPerformed
 
-    private void btnBookRoundTripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoundTripActionPerformed
+    private void PerformanceActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PerformanceActionPerformed
         // TODO add your handling code here:
-        BookRoundJPanel brjp = new BookRoundJPanel(ab,workArea,pp);
-        workArea.add("BookRoundJPanel",brjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnBookRoundTripActionPerformed
+        // ProductReportJPanel prjp = new workArea(userProcessContainer, supplier);
+        // workArea.add("ProductReportJPanelSupplier", prjp);
+        // CardLayout layout = (CardLayout)workArea.getLayout();
+        // layout.next(userProcessContainer);
+    }// GEN-LAST:event_PerformanceActionPerformed
 
-    private void btnBookConnectingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookConnectingActionPerformed
+    private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSupplierProfileActionPerformed
+        
+    }// GEN-LAST:event_btnSupplierProfileActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        BookConnectingJPanel bcjp = new BookConnectingJPanel(ab,workArea,pp);
-        workArea.add("BookConncetingJPanel",bcjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnBookConnectingActionPerformed
 
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        // TODO add your handling code here:
-        ViewOrderJPanel vojp = new ViewOrderJPanel(ab,workArea,pp);
-        workArea.add("ViewOrderJPanel",vojp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }//GEN-LAST:event_btnOrderActionPerformed
+       
 
+    }// GEN-LAST:event_btnLogOutActionPerformed
+
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookConnecting;
     private javax.swing.JButton btnBookRoundTrip;
     private javax.swing.JButton btnBookTickets;
-    private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel menuBar;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;

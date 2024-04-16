@@ -149,7 +149,6 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBookTickets = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         cmbDeparture = new javax.swing.JComboBox<>();
         cmbDestination = new javax.swing.JComboBox<>();
@@ -163,10 +162,11 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFlights = new javax.swing.JTable();
         btnBook = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblBookTickets.setText("Book Tickets(Connecting Trip)");
+        setBackground(new java.awt.Color(242, 249, 255));
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblName.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Departure Airport");
 
@@ -174,12 +174,13 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
 
         cmbDestination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblDepartureDate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblDepartureDate.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblDepartureDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDepartureDate.setText("Departure Date");
 
         cmbDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnSearch.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +188,7 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblClass.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblClass.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblClass.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblClass.setText("Seat Class");
 
@@ -198,7 +199,7 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNumberOfPassengers.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblNumberOfPassengers.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblNumberOfPassengers.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNumberOfPassengers.setText("No. of Passengers");
 
@@ -208,6 +209,7 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
             }
         });
 
+        tblFlights.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         tblFlights.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -221,6 +223,7 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblFlights);
 
+        btnBook.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBook.setText("Book");
         btnBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,79 +231,76 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Book Tickets(Connecting Trip)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblBookTickets)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addComponent(lblClass)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbSeatClass, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNumberOfPassengers)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNoOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addComponent(btnSearch)
+                        .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblName)
                                     .addComponent(lblDepartureDate))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cmbDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbDeparture, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(89, 89, 89)
-                                        .addComponent(cmbDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 240, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(251, 251, 251)
-                                        .addComponent(btnSearch))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblClass)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbSeatClass, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNumberOfPassengers)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNoOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(36, 36, 36))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBook)))
-                .addContainerGap())
+                                .addGap(89, 89, 89)
+                                .addComponent(cmbDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBook)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(lblBookTickets)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(cmbDeparture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDepartureDate)
-                        .addComponent(cmbDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSearch))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDepartureDate)
+                    .addComponent(cmbDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblClass)
                     .addComponent(cmbSeatClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNumberOfPassengers)
-                    .addComponent(txtNoOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtNoOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBook)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -382,8 +382,8 @@ public class BookConnectingJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbDeparture;
     private javax.swing.JComboBox<String> cmbDestination;
     private javax.swing.JComboBox<String> cmbSeatClass;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBookTickets;
     private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblDepartureDate;
     private javax.swing.JLabel lblName;

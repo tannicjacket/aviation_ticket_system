@@ -4,55 +4,18 @@
  */
 package UI.Airline;
 
-import Airline.AirlineCompany;
-import Business.AirlineBusiness;
-import Flight.Flight;
-import java.awt.CardLayout;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author martta
  */
 public class ManageFlightsJPanel extends javax.swing.JPanel {
-    JPanel mainWorkArea;
-    AirlineBusiness ab;
-    AirlineCompany ac;
+
     /**
      * Creates new form ManageFlightsJPanel
      */
-    public ManageFlightsJPanel(AirlineBusiness ab,JPanel mainWorkArea, AirlineCompany ac) {
+    public ManageFlightsJPanel() {
         initComponents();
-        this.ab = ab;
-        this.mainWorkArea = mainWorkArea;    
-        this.ac = ac;
-        
-        populateTable();
     }
-    
-    public void populateTable() {
-        List<Flight> flightsList = ac.getFlightDirectory().getFlights();
-
-        DefaultTableModel model = (DefaultTableModel) tblFlights.getModel();
-        model.setRowCount(0); 
-
-        for (Flight flight : flightsList) {
-            Object[] row = new Object[7]; 
-            row[0] = flight.getFlightNumber();
-            row[1] = flight.getDepartureStation();
-            row[2] = flight.getArrivalStation();
-            row[3] = flight.getDepartureTime();
-            row[4] = flight.getArrivalTime();
-            row[5] = flight.getDate(); 
-            row[6] = flight.getSeatsCapacity();
-
-            model.addRow(row); 
-        }
-    }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,10 +28,18 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFlights = new javax.swing.JTable();
-        lblMngFlights = new javax.swing.JLabel();
         btnAddNewFlights = new javax.swing.JButton();
+        btnUpdateFlights = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+<<<<<<< Updated upstream
+        btnSave = new javax.swing.JButton();
+=======
+        jLabel1 = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 
+        setBackground(new java.awt.Color(242, 249, 255));
+
+        tblFlights.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         tblFlights.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -77,26 +48,24 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Flight No.", "Departure", "Destination", "Departure Time", "Arrival Time", "Date", "Seats Capacity"
+                "Flight No.", "Departure Airport", "Destination", "Departure Time", "Arrival Time", "Date", "Available Seats"
             }
         ));
         jScrollPane1.setViewportView(tblFlights);
 
-        lblMngFlights.setText("Manage Flights");
-
+        btnAddNewFlights.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnAddNewFlights.setText("Add New Flights");
-        btnAddNewFlights.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewFlightsActionPerformed(evt);
-            }
-        });
 
+        btnUpdateFlights.setText("Update Flights");
+
+        btnDelete.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
+
+        btnSave.setText("Save");
+
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Manage Flights");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -105,61 +74,69 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< Updated upstream
                         .addGap(29, 29, 29)
                         .addComponent(lblMngFlights))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnAddNewFlights)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdateFlights)
+                .addGap(29, 29, 29)
+                .addComponent(btnDelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(34, 34, 34))
+=======
                         .addGap(30, 30, 30)
                         .addComponent(btnAddNewFlights)
                         .addGap(41, 41, 41)
-                        .addComponent(btnDelete)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addComponent(btnDelete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(91, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(lblMngFlights)
-                .addGap(12, 12, 12)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddNewFlights)
-                    .addComponent(btnDelete))
+<<<<<<< Updated upstream
+                    .addComponent(btnUpdateFlights)
+                    .addComponent(btnDelete)
+                    .addComponent(btnSave))
                 .addContainerGap(118, Short.MAX_VALUE))
+=======
+                    .addComponent(btnDelete))
+                .addContainerGap(135, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddNewFlightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewFlightsActionPerformed
-        // TODO add your handling code here:
-        AddNewFlightJPanel afjp = new AddNewFlightJPanel(ac,mainWorkArea);
-        mainWorkArea.add("AddNewFlightJPanel",afjp);
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);
-        
-    }//GEN-LAST:event_btnAddNewFlightsActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblFlights.getSelectedRow();
-        if (selectedRow >= 0) {
-            String flightNumber = (String) tblFlights.getValueAt(selectedRow, 0);
-            ac.getFlightDirectory().removeFlight(flightNumber);
-            populateTable();
-            JOptionPane.showMessageDialog(null, "Flight deleted successfully!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select a flight to delete.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewFlights;
     private javax.swing.JButton btnDelete;
+<<<<<<< Updated upstream
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdateFlights;
+=======
+    private javax.swing.JLabel jLabel1;
+>>>>>>> Stashed changes
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMngFlights;
     private javax.swing.JTable tblFlights;
     // End of variables declaration//GEN-END:variables
 }

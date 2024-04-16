@@ -4,31 +4,17 @@
  */
 package UI.Airline;
 
-import Airline.AirlineCompany;
-import Faculty.FacultyProfile;
-import java.awt.CardLayout;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 /**
  *
  * @author martta
  */
 public class UpdateFacultyJPanel extends javax.swing.JPanel {
-    AirlineCompany ac;
-    JPanel mainWorkArea;
-    
-    
+
     /**
      * Creates new form AddNewFacultyJPanel
      */
-    public UpdateFacultyJPanel(AirlineCompany ac,JPanel mainWorkArea) {
+    public UpdateFacultyJPanel() {
         initComponents();
-        this.ac = ac;
-        this.mainWorkArea = mainWorkArea;
-        
-        txtCompany.setText(ac.getName());
-        txtCompany.setEditable(false); 
     }
 
     /**
@@ -52,9 +38,16 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
         lblRole = new javax.swing.JLabel();
+<<<<<<< Updated upstream
         lblUpdateFaculty = new javax.swing.JLabel();
+        BtnUpdate = new javax.swing.JButton();
+=======
         btnUpdate = new javax.swing.JButton();
+>>>>>>> Stashed changes
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(242, 249, 255));
 
         txtRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,11 +55,11 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblCompany.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCompany.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblCompany.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCompany.setText("Company");
 
-        lblWorkID.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblWorkID.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblWorkID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblWorkID.setText("Work ID");
 
@@ -82,7 +75,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblName.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Name");
 
@@ -92,7 +85,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblAge.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblAge.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAge.setText("Age");
 
@@ -102,7 +95,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblGender.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblGender.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGender.setText("Gender");
 
@@ -112,25 +105,36 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblRole.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Role");
 
+<<<<<<< Updated upstream
         lblUpdateFaculty.setText("Update Faculty");
 
+        BtnUpdate.setText("Update");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnUpdate.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                BtnUpdateActionPerformed(evt);
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Update Faculty(Attendant)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -164,23 +168,24 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblWorkID)
                                 .addGap(57, 57, 57)
-                                .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblUpdateFaculty))
+                                .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(103, 103, 103)
-                        .addComponent(btnUpdate))
+                        .addComponent(BtnUpdate))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnBack)))
-                .addContainerGap(166, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btnBack))))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUpdateFaculty)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWorkID)
                     .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,7 +209,7 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCompany)
                     .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate))
+                    .addComponent(BtnUpdate))
                 .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -233,58 +238,28 @@ public class UpdateFacultyJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenderActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
         // TODO add your handling code here:
-        String id = txtWorkID.getText().trim();
-        String name = txtName.getText().trim();
-        String ageText = txtAge.getText().trim();
-        String gender = txtGender.getText().trim();
-        String role = txtRole.getText().trim();
-
-        if (id.isEmpty() || name.isEmpty() || ageText.isEmpty() || gender.isEmpty() || role.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields must be filled!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        int age;
-        try {
-            age = Integer.parseInt(ageText);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid age.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        FacultyProfile faculty = ac.getFacultyDirectory().findFacultyById(id);
-        if (faculty == null) {
-            JOptionPane.showMessageDialog(this, "No faculty found with the provided ID.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        faculty.setName(name);
-        faculty.setAge(age);
-        faculty.setGender(gender);
-        faculty.setRole(role);
-
-        JOptionPane.showMessageDialog(this, "Faculty information updated successfully!");
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        mainWorkArea.remove(this);
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.previous(mainWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnUpdate;
     private javax.swing.JButton btnBack;
+<<<<<<< Updated upstream
+=======
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+>>>>>>> Stashed changes
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblUpdateFaculty;
     private javax.swing.JLabel lblWorkID;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCompany;
