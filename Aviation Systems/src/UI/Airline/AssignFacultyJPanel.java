@@ -6,7 +6,15 @@ package UI.Airline;
 
 import Airline.AirlineCompany;
 import Business.AirlineBusiness;
+import Faculty.FacultyFlightAssignment;
+import Faculty.FacultyProfile;
+import Flight.Flight;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +32,50 @@ public class AssignFacultyJPanel extends javax.swing.JPanel {
         this.ab = ab;
         this.mainWorkArea = mainWorkArea;    
         this.ac = ac;
+        
+        populateAvailableFacultyTable();
+    }
+    
+    private void populateCurrentFacultyTable(Flight flight) {
+        DefaultTableModel model = (DefaultTableModel) tblCurrentFaculty.getModel();
+        model.setRowCount(0);
+
+        List<FacultyFlightAssignment> assignments = ab.getffaDirectory()
+            .getAssignmentsByFlightId(flight.getFlightNumber());
+
+        for (FacultyFlightAssignment assignment : assignments) {
+            FacultyProfile faculty = assignment.getFaculty();
+            Object[] row = new Object[] {
+                faculty.getId(),
+                faculty.getName(),
+                faculty.getRole()
+            };
+            model.addRow(row);
+        }
+    }
+    
+    private void populateAvailableFacultyTable() {
+        DefaultTableModel model = (DefaultTableModel) tblAvailableFaculty.getModel();
+        model.setRowCount(0);
+
+        List<FacultyProfile> allFaculty = ab.getFacultyDirectory().getAllFaculty();
+
+        List<FacultyFlightAssignment> allAssignments = ab.getffaDirectory().getAssignments();
+
+        Set<String> assignedFacultyIds = allAssignments.stream()
+            .map(assignment -> assignment.getFaculty().getId())
+            .collect(Collectors.toSet());
+
+        for (FacultyProfile faculty : allFaculty) {
+            if (!assignedFacultyIds.contains(faculty.getId())) {
+                Object[] row = new Object[] {
+                    faculty.getId(),
+                    faculty.getName(),
+                    faculty.getRole()
+                };
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -40,8 +92,12 @@ public class AssignFacultyJPanel extends javax.swing.JPanel {
         txtFlightNumber = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblFaculty = new javax.swing.JTable();
+        tblCurrentFaculty = new javax.swing.JTable();
         btnAssign = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAvailableFaculty = new javax.swing.JTable();
+        lblCurrentFaculty = new javax.swing.JLabel();
+        lblAvailableFaculty = new javax.swing.JLabel();
 
         lblAssignFaculty.setText("Assign Faculty");
 
@@ -53,9 +109,14 @@ public class AssignFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch.setText("Search");
+        btnSearch.setText("SearchFlight");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
-        tblFaculty.setModel(new javax.swing.table.DefaultTableModel(
+        tblCurrentFaculty.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -66,50 +127,83 @@ public class AssignFacultyJPanel extends javax.swing.JPanel {
                 "Work ID", "Name", "Role"
             }
         ));
-        jScrollPane1.setViewportView(tblFaculty);
+        jScrollPane1.setViewportView(tblCurrentFaculty);
 
         btnAssign.setText("Assign");
+        btnAssign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignActionPerformed(evt);
+            }
+        });
+
+        tblAvailableFaculty.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Work ID", "Name", "Role"
+            }
+        ));
+        jScrollPane2.setViewportView(tblAvailableFaculty);
+
+        lblCurrentFaculty.setText("Current Faculty:");
+
+        lblAvailableFaculty.setText("Available Faculty:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAvailableFaculty)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblAssignFaculty))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(lblFlightNumber)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSearch)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnAssign)
-                .addGap(186, 186, 186))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCurrentFaculty)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(17, 17, 17)
+                                    .addComponent(lblAssignFaculty))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblFlightNumber)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnSearch))))
+                        .addGap(30, 30, 30)
+                        .addComponent(btnAssign)))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAssign)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAssign))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addComponent(lblAssignFaculty)
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFlightNumber)
                             .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearch))
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCurrentFaculty)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(lblAvailableFaculty)
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,14 +211,65 @@ public class AssignFacultyJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFlightNumberActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String flightNumber = txtFlightNumber.getText();
+        Flight flight = ab.getFlightDirectory().getFlightByNumber(flightNumber);
+
+        if (flight != null) {
+            populateCurrentFacultyTable(flight);
+            populateAvailableFacultyTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Flight not found.");
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
+        // TODO add your handling code here:
+        int selectedAvailableRow = tblAvailableFaculty.getSelectedRow();
+        int selectedCurrentRow = tblCurrentFaculty.getSelectedRow();
+
+        if (selectedAvailableRow == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a faculty from the available list.");
+            return;
+        }
+
+        String flightNumber = txtFlightNumber.getText().trim();
+        Flight flight = ab.getFlightDirectory().getFlightByNumber(flightNumber);
+        if (flight == null) {
+            JOptionPane.showMessageDialog(null, "Flight not found.");
+            return;
+        }
+
+        String facultyId = (String) tblAvailableFaculty.getValueAt(selectedAvailableRow, 0);
+        FacultyProfile faculty = ab.getFacultyDirectory().findFacultyById(facultyId);
+
+        if (faculty == null) {
+            JOptionPane.showMessageDialog(null, "Faculty not found.");
+            return;
+        }
+
+        FacultyFlightAssignment newAssignment = new FacultyFlightAssignment(faculty, flight);
+        ab.getffaDirectory().addAssignment(newAssignment);
+
+        populateCurrentFacultyTable(flight);
+        populateAvailableFacultyTable();  
+
+        JOptionPane.showMessageDialog(null, "Faculty assigned successfully.");
+    }//GEN-LAST:event_btnAssignActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
     private javax.swing.JButton btnSearch;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAssignFaculty;
+    private javax.swing.JLabel lblAvailableFaculty;
+    private javax.swing.JLabel lblCurrentFaculty;
     private javax.swing.JLabel lblFlightNumber;
-    private javax.swing.JTable tblFaculty;
+    private javax.swing.JTable tblAvailableFaculty;
+    private javax.swing.JTable tblCurrentFaculty;
     private javax.swing.JTextField txtFlightNumber;
     // End of variables declaration//GEN-END:variables
 }

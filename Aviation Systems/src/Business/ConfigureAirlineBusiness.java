@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -209,36 +210,56 @@ public class ConfigureAirlineBusiness {
         Collections.shuffle(generatedFaculty);
         generatedFaculty.stream().limit(3).forEach(faculty -> System.out.println(faculty.getId()));
     }
-
+    
 //    private static void assignFacultyToFlights(AirlineBusiness business) {
 //        List<Flight> flights = business.getFlightDirectory().getFlights();
 //        List<FacultyProfile> allFaculty = business.getFacultyDirectory().getAllFaculty();
 //
-//        for (Flight flight : flights) {
-//            // filter faculty from the same company with the flight
-//            List<FacultyProfile> companyFaculty = allFaculty.stream()
-//                    .filter(faculty -> faculty.getAirlineCompany().equals(flight.getAirlineCompany()))
-//                    .collect(Collectors.toList());
+//        // Make sure the faculty only assigned to the same company's flights
+//        Map<AirlineCompany, List<Flight>> flightsByCompany = flights.stream()
+//            .collect(Collectors.groupingBy(Flight::getAirlineCompany));
+//        Map<AirlineCompany, List<FacultyProfile>> facultyByCompany = allFaculty.stream()
+//            .collect(Collectors.groupingBy(FacultyProfile::getAirlineCompany));
 //
-//            // assign 1 pilot and 1 co-pilot
-//            FacultyProfile pilot = findFacultyByRole(companyFaculty, "pilot");
-//            if (pilot != null) {
-//                companyFaculty.remove(pilot); // remove assigned pilot from the list to prevent conflict
-//                business.getffaDirectory().addAssignment(new FacultyFlightAssignment(pilot, flight));
-//            }
+//        for (AirlineCompany company : business.getAirlineDirectory().getAirlineCompanies()) {
+//            List<Flight> companyFlights = flightsByCompany.getOrDefault(company, new ArrayList<>());
+//            List<FacultyProfile> companyFaculty = facultyByCompany.getOrDefault(company, new ArrayList<>());
 //
-//            FacultyProfile coPilot = findFacultyByRole(companyFaculty, "co-pilot");
-//            if (coPilot != null) {
-//                business.getffaDirectory().addAssignment(new FacultyFlightAssignment(coPilot, flight));
+//            // Shuffle flights to distribute assignments evenly
+//            Collections.shuffle(companyFlights);
+//
+//            for (Flight flight : companyFlights) {
+//                // Assign pilots
+//                FacultyProfile pilot = findFacultyByRole(companyFaculty, "pilot");
+//                if (pilot != null) {
+//                    business.getffaDirectory().addAssignment(new FacultyFlightAssignment(pilot, flight));
+//                    companyFaculty.remove(pilot); // Remove assigned faculty to prevent reassignment
+//                }
+//
+//                // Assign co-pilots
+//                FacultyProfile coPilot = findFacultyByRole(companyFaculty, "co-pilot");
+//                if (coPilot != null) {
+//                    business.getffaDirectory().addAssignment(new FacultyFlightAssignment(coPilot, flight));
+//                    companyFaculty.remove(coPilot); // Remove assigned faculty to prevent reassignment
+//                }
 //            }
 //        }
+//    }
+
+//    private static FacultyProfile findFacultyByRole(List<FacultyProfile> facultyList, String role) {
+//        for (FacultyProfile faculty : facultyList) {
+//            if (faculty.getRole().equalsIgnoreCase(role)) {
+//                return faculty;
+//            }
+//        }
+//        return null;
 //    }
     
     private static void assignFacultyToFlights(AirlineBusiness business) {
         List<Flight> flights = business.getFlightDirectory().getFlights();
         List<FacultyProfile> allFaculty = business.getFacultyDirectory().getAllFaculty();
 
-        // Make sure the faculty only assigned to the same company's flights
+        // Grouping flights and faculty by airline company for company-specific assignment
         Map<AirlineCompany, List<Flight>> flightsByCompany = flights.stream()
             .collect(Collectors.groupingBy(Flight::getAirlineCompany));
         Map<AirlineCompany, List<FacultyProfile>> facultyByCompany = allFaculty.stream()
@@ -248,35 +269,52 @@ public class ConfigureAirlineBusiness {
             List<Flight> companyFlights = flightsByCompany.getOrDefault(company, new ArrayList<>());
             List<FacultyProfile> companyFaculty = facultyByCompany.getOrDefault(company, new ArrayList<>());
 
-            // Shuffle flights to distribute assignments evenly
-            Collections.shuffle(companyFlights);
-
             for (Flight flight : companyFlights) {
-                // Assign pilots
-                FacultyProfile pilot = findFacultyByRole(companyFaculty, "pilot");
+                // Attempt to assign one pilot
+                FacultyProfile pilot = findAndRemoveFacultyByRole(companyFaculty, "pilot");
                 if (pilot != null) {
                     business.getffaDirectory().addAssignment(new FacultyFlightAssignment(pilot, flight));
-                    companyFaculty.remove(pilot); // Remove assigned faculty to prevent reassignment
                 }
 
-                // Assign co-pilots
-                FacultyProfile coPilot = findFacultyByRole(companyFaculty, "co-pilot");
+                // Attempt to assign one co-pilot
+                FacultyProfile coPilot = findAndRemoveFacultyByRole(companyFaculty, "co-pilot");
                 if (coPilot != null) {
                     business.getffaDirectory().addAssignment(new FacultyFlightAssignment(coPilot, flight));
-                    companyFaculty.remove(coPilot); // Remove assigned faculty to prevent reassignment
+                }
+
+                // Attempt to assign at least 10 attendants
+                List<FacultyProfile> attendants = findAndRemoveMultipleFacultyByRole(companyFaculty, "attendant", 10);
+                for (FacultyProfile attendant : attendants) {
+                    business.getffaDirectory().addAssignment(new FacultyFlightAssignment(attendant, flight));
                 }
             }
         }
     }
 
-    private static FacultyProfile findFacultyByRole(List<FacultyProfile> facultyList, String role) {
-        for (FacultyProfile faculty : facultyList) {
+    private static FacultyProfile findAndRemoveFacultyByRole(List<FacultyProfile> facultyList, String role) {
+        for (Iterator<FacultyProfile> it = facultyList.iterator(); it.hasNext();) {
+            FacultyProfile faculty = it.next();
             if (faculty.getRole().equalsIgnoreCase(role)) {
+                it.remove();  // Remove faculty to prevent reassignment
                 return faculty;
             }
         }
         return null;
     }
+
+    private static List<FacultyProfile> findAndRemoveMultipleFacultyByRole(List<FacultyProfile> facultyList, String role, int count) {
+        List<FacultyProfile> selectedFaculty = new ArrayList<>();
+        Iterator<FacultyProfile> it = facultyList.iterator();
+        while (it.hasNext() && selectedFaculty.size() < count) {
+            FacultyProfile faculty = it.next();
+            if (faculty.getRole().equalsIgnoreCase(role)) {
+                selectedFaculty.add(faculty);
+                it.remove();  // Remove faculty to prevent reassignment
+            }
+        }
+        return selectedFaculty;
+    }
+
 
     private static void loadPassengers(AirlineBusiness business, int count, UserAccountDirectory uaDirectory) {
         List<PassengerProfile> generatedPassengers = new ArrayList<>(); // for output id
