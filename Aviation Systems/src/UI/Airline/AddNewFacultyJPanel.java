@@ -38,9 +38,16 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
         lblRole = new javax.swing.JLabel();
+<<<<<<< Updated upstream
         lblAddNewFaculty = new javax.swing.JLabel();
         BtnAdd = new javax.swing.JButton();
+=======
+        btnAdd = new javax.swing.JButton();
+>>>>>>> Stashed changes
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(242, 249, 255));
 
         txtRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,11 +55,11 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblCompany.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCompany.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblCompany.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCompany.setText("Company");
 
-        lblWorkID.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblWorkID.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblWorkID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblWorkID.setText("Work ID");
 
@@ -68,7 +75,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblName.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Name");
 
@@ -78,7 +85,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblAge.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblAge.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAge.setText("Age");
 
@@ -88,7 +95,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblGender.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblGender.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGender.setText("Gender");
 
@@ -98,25 +105,36 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblRole.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Role");
 
+<<<<<<< Updated upstream
         lblAddNewFaculty.setText("Add New Faculty");
 
         BtnAdd.setText("Add");
         BtnAdd.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnAdd.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddActionPerformed(evt);
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Add New Faculty");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,26 +165,27 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
                                 .addComponent(lblName)
                                 .addGap(57, 57, 57)
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblWorkID)
-                                .addGap(57, 57, 57)
-                                .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblAddNewFaculty))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblWorkID)
+                                    .addGap(57, 57, 57)
+                                    .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(103, 103, 103)
                         .addComponent(BtnAdd))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(21, 21, 21)
                         .addComponent(btnBack)))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAddNewFaculty)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWorkID)
                     .addComponent(txtWorkID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -231,7 +250,7 @@ public class AddNewFacultyJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel lblAddNewFaculty;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblGender;

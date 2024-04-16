@@ -26,15 +26,16 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMngFaculty = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFaculty = new javax.swing.JTable();
         btnAddNewFaculty = new javax.swing.JButton();
         btnUpdateFaculty = new javax.swing.JButton();
         btnDeleteFaculty = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblMngFaculty.setText("Manage Faculty");
+        setBackground(new java.awt.Color(242, 249, 255));
 
+        tblFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         tblFaculty.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -48,6 +49,7 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblFaculty);
 
+        btnAddNewFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnAddNewFaculty.setText("Add New faculty");
         btnAddNewFaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +57,7 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnUpdateFaculty.setText("Update Faculty");
         btnUpdateFaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,7 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnDeleteFaculty.setText("Delete Faculty");
         btnDeleteFaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,21 +73,25 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Manage Faculty");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(lblMngFaculty)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(399, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDeleteFaculty)
-                    .addComponent(btnUpdateFaculty)
-                    .addComponent(btnAddNewFaculty))
+                .addContainerGap(393, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddNewFaculty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUpdateFaculty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDeleteFaculty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(118, 118, 118))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(14, 14, 14)
@@ -93,15 +101,15 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(lblMngFaculty)
-                .addGap(67, 67, 67)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addGap(62, 62, 62)
                 .addComponent(btnAddNewFaculty)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addComponent(btnUpdateFaculty)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addComponent(btnDeleteFaculty)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(136, 136, 136)
@@ -127,8 +135,8 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAddNewFaculty;
     private javax.swing.JButton btnDeleteFaculty;
     private javax.swing.JButton btnUpdateFaculty;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMngFaculty;
     private javax.swing.JTable tblFaculty;
     // End of variables declaration//GEN-END:variables
 }

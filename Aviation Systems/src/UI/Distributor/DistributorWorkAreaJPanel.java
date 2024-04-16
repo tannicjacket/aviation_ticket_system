@@ -50,18 +50,42 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
         splitPane.setDividerLocation(50);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setBackground(new java.awt.Color(242, 249, 255));
 
+<<<<<<< Updated upstream
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnManagePrice.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnManagePrice.setText("Manage Price");
+        btnManagePrice.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
         BtnManagePrice.setText("Manage Price");
 
         btnViewSalesreport.setText("View Sales Report");
+=======
+        btnViewSalesreport.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnViewSalesreport.setText("View Sales Report");
+        btnViewSalesreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewSalesreportActionPerformed(evt);
+            }
+        });
+
+        btnlogout.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+        btnlogout.setText("Logout");
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
+            }
+        });
+>>>>>>> Stashed changes
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -72,14 +96,20 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(BtnManagePrice)
                 .addGap(30, 30, 30)
                 .addComponent(btnViewSalesreport)
+<<<<<<< Updated upstream
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(46, 46, 46))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
+                .addComponent(btnlogout)
+                .addGap(23, 23, 23))
+>>>>>>> Stashed changes
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogOut)
                     .addComponent(BtnManagePrice)
@@ -89,7 +119,7 @@ public class DistributorWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(menuBar);
 
-        workArea.setBackground(new java.awt.Color(255, 255, 255));
+        workArea.setBackground(new java.awt.Color(242, 249, 255));
         workArea.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(workArea);
 

@@ -47,18 +47,42 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         splitPane.setDividerLocation(50);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setBackground(new java.awt.Color(242, 249, 255));
 
+<<<<<<< Updated upstream
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnUpdateMyProfile.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnUpdateMyProfile.setText("Update My Profile");
+        btnUpdateMyProfile.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
         btnUpdateMyProfile.setText("Update My Profile");
 
         btnViewMyFlight.setText("View My Flight");
+=======
+        btnViewMyFlight.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnViewMyFlight.setText("View My Flight");
+        btnViewMyFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewMyFlightActionPerformed(evt);
+            }
+        });
+
+        btnlogout.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+        btnlogout.setText("Logout");
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
+            }
+        });
+>>>>>>> Stashed changes
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -69,14 +93,20 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnViewMyFlight)
                 .addGap(18, 18, 18)
                 .addComponent(btnUpdateMyProfile)
+<<<<<<< Updated upstream
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(46, 46, 46))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addComponent(btnlogout)
+                .addGap(31, 31, 31))
+>>>>>>> Stashed changes
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogOut)
                     .addComponent(btnUpdateMyProfile)
@@ -86,7 +116,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(menuBar);
 
-        workArea.setBackground(new java.awt.Color(255, 255, 255));
+        workArea.setBackground(new java.awt.Color(242, 249, 255));
         workArea.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(workArea);
 

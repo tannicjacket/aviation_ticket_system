@@ -40,9 +40,19 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
         txtFlightNumber = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
+<<<<<<< Updated upstream
         lblAddNewFligth = new javax.swing.JLabel();
+=======
+        cbDepartureTime = new javax.swing.JComboBox<>();
+        cbArrivalTime = new javax.swing.JComboBox<>();
+        lblAvailableSeats1 = new javax.swing.JLabel();
+        cbDate = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        setBackground(new java.awt.Color(242, 249, 255));
+
+        lblName.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Departure Airport");
 
@@ -52,7 +62,7 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblAge.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblAge.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAge.setText("Destination");
 
@@ -62,10 +72,11 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblDepartureTime.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblDepartureTime.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblDepartureTime.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDepartureTime.setText("Departure Time");
 
+<<<<<<< Updated upstream
         txtDepartureTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDepartureTimeActionPerformed(evt);
@@ -85,8 +96,17 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
         lblAvailableSeats.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         lblAvailableSeats.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAvailableSeats.setText("Available Seats");
+=======
+        lblRole.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+        lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblRole.setText("Arrival Time");
 
-        lblWorkID.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Date.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+        Date.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Date.setText("Date");
+>>>>>>> Stashed changes
+
+        lblWorkID.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
         lblWorkID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblWorkID.setText("Flight Number");
 
@@ -102,6 +122,7 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +130,7 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAdd.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,19 +138,70 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< Updated upstream
         lblAddNewFligth.setText("Add New Flight");
+=======
+        cbDepartureTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbArrivalTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblAvailableSeats1.setFont(new java.awt.Font("Amazon Ember", 1, 14)); // NOI18N
+        lblAvailableSeats1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAvailableSeats1.setText("Seat Capacity");
+
+        cbDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Add New Flight");
+>>>>>>> Stashed changes
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblAge)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblWorkID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblName)
+                            .addGap(57, 57, 57)
+                            .addComponent(txtDepartureAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblAvailableSeats1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblDepartureTime)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbDepartureTime, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(106, 106, 106)
+                            .addComponent(cbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblRole)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtAvailableSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbArrivalTime, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAdd)))))
+                .addGap(285, 285, 285))
+>>>>>>> Stashed changes
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(lblAddNewFligth))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+<<<<<<< Updated upstream
                         .addComponent(btnBack)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -164,12 +237,20 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
                             .addGap(57, 57, 57)
                             .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(257, Short.MAX_VALUE)))
+=======
+                        .addComponent(btnBack))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(btnBack)
+<<<<<<< Updated upstream
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAddNewFligth)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
@@ -202,6 +283,44 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
                         .addComponent(lblAvailableSeats)
                         .addComponent(txtAvailableSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(76, Short.MAX_VALUE)))
+=======
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWorkID)
+                    .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtDepartureAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAge)
+                    .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Date)
+                    .addComponent(cbDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblDepartureTime)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRole)
+                            .addComponent(cbArrivalTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(cbDepartureTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAvailableSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAvailableSeats1))
+                .addGap(46, 46, 46)
+                .addComponent(btnAdd)
+                .addGap(32, 32, 32))
+>>>>>>> Stashed changes
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,7 +360,14 @@ public class AddNewFlightJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+<<<<<<< Updated upstream
     private javax.swing.JLabel lblAddNewFligth;
+=======
+    private javax.swing.JComboBox<String> cbArrivalTime;
+    private javax.swing.JComboBox<String> cbDate;
+    private javax.swing.JComboBox<String> cbDepartureTime;
+    private javax.swing.JLabel jLabel1;
+>>>>>>> Stashed changes
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblAvailableSeats;
     private javax.swing.JLabel lblDepartureTime;

@@ -26,7 +26,6 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblViewSalesReport = new javax.swing.JLabel();
         lblClass = new javax.swing.JLabel();
         lblMonth = new javax.swing.JLabel();
         cmbMonth = new javax.swing.JComboBox<>();
@@ -35,14 +34,19 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
         cmbAge = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSales = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblViewSalesReport.setText("View Sales Report");
+        setBackground(new java.awt.Color(242, 249, 255));
 
-        lblClass.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblClass.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblClass.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< Updated upstream
         lblClass.setText("Class");
+=======
+        lblClass.setText("Cabin Class");
+>>>>>>> Stashed changes
 
-        lblMonth.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblMonth.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblMonth.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMonth.setText("Month:");
 
@@ -60,7 +64,7 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPassengerAge.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblPassengerAge.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblPassengerAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPassengerAge.setText("Passenger Age");
 
@@ -84,13 +88,22 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblSales);
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("View Sales Report");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblMonth)
                         .addGap(18, 18, 18)
@@ -102,6 +115,7 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
                         .addGap(26, 26, 26)
                         .addComponent(lblPassengerAge)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< Updated upstream
                         .addComponent(cmbAge, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblViewSalesReport))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -109,13 +123,17 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                        .addComponent(cmbAge, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblViewSalesReport)
-                .addGap(39, 39, 39)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMonth)
                     .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,9 +141,13 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
                     .addComponent(cmbClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPassengerAge)
                     .addComponent(cmbAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< Updated upstream
                 .addContainerGap(109, Short.MAX_VALUE))
+=======
+                .addContainerGap(161, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,11 +168,11 @@ public class ViewSalesReportJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbAge;
     private javax.swing.JComboBox<String> cmbClass;
     private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblMonth;
     private javax.swing.JLabel lblPassengerAge;
-    private javax.swing.JLabel lblViewSalesReport;
     private javax.swing.JTable tblSales;
     // End of variables declaration//GEN-END:variables
 }

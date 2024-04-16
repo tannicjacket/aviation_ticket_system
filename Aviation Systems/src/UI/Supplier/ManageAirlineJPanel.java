@@ -26,7 +26,6 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblManageAirline = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAirline = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
@@ -37,9 +36,11 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
         lblCompany = new javax.swing.JLabel();
         txtCompany = new javax.swing.JTextField();
         btnAddNew = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblManageAirline.setText("Manage Airline");
+        setBackground(new java.awt.Color(242, 249, 255));
 
+        tblAirline.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         tblAirline.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -53,6 +54,7 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAirline);
 
+        btnDelete.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,12 +62,18 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblID.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblID.setText("ID:");
 
+        lblName.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         lblName.setText("Name:");
 
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/ManageAirlineJPanel.java
         lblCompany.setText("Company:");
 
+=======
+        btnAddNew.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/ManageAirlineJPanel.java
         btnAddNew.setText("Add New");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,23 +81,28 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Amazon Ember", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel1.setText("Manage Airline");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAddNew)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblID)
-                                .addGap(22, 22, 22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblName)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/ManageAirlineJPanel.java
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblCompany)
@@ -104,28 +117,41 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDelete)
                         .addGap(29, 29, 29))))
+=======
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDelete)
+                            .addComponent(btnAddNew))))
+                .addGap(29, 289, Short.MAX_VALUE))
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/ManageAirlineJPanel.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDelete)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblManageAirline)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete))
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblID)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< Updated upstream:Aviation Systems/src/UI/Supplier/ManageAirlineJPanel.java
                     .addComponent(lblCompany)
                     .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnAddNew)
                 .addContainerGap(33, Short.MAX_VALUE))
+=======
+                    .addComponent(btnAddNew))
+                .addContainerGap(145, Short.MAX_VALUE))
+>>>>>>> Stashed changes:Aviation Systems/src/UI/Admin/ManageAirlineJPanel.java
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,10 +167,10 @@ public class ManageAirlineJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNew;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblManageAirline;
     private javax.swing.JLabel lblName;
     private javax.swing.JTable tblAirline;
     private javax.swing.JTextField txtCompany;

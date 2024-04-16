@@ -50,20 +50,48 @@ public class AirlineWorkAreaJPanel extends javax.swing.JPanel {
         splitPane.setDividerLocation(50);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setBackground(new java.awt.Color(242, 249, 255));
+        menuBar.setPreferredSize(new java.awt.Dimension(800, 100));
 
+<<<<<<< Updated upstream
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnAssignFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnAssignFaculty.setText("Assign Faculty");
+        btnAssignFaculty.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
         btnAssignFaculty.setText("Assign Faculty");
 
+=======
+        btnMngFaculty.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+>>>>>>> Stashed changes
         btnMngFaculty.setText("Manage Faculty");
 
+        btnMngFlight.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
         btnMngFlight.setText("Manage Flight");
+<<<<<<< Updated upstream
+=======
+        btnMngFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMngFlightActionPerformed(evt);
+            }
+        });
+
+        btnlogout.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
+        btnlogout.setText("Logout");
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
+            }
+        });
+>>>>>>> Stashed changes
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -76,14 +104,20 @@ public class AirlineWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnAssignFaculty)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMngFlight)
+<<<<<<< Updated upstream
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(46, 46, 46))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addComponent(btnlogout)
+                .addGap(54, 54, 54))
+>>>>>>> Stashed changes
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogOut)
                     .addComponent(btnAssignFaculty)
@@ -94,7 +128,7 @@ public class AirlineWorkAreaJPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(menuBar);
 
-        workArea.setBackground(new java.awt.Color(255, 255, 255));
+        workArea.setBackground(new java.awt.Color(242, 249, 255));
         workArea.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(workArea);
 
