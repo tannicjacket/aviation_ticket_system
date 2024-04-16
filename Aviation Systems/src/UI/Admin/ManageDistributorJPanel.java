@@ -35,10 +35,13 @@ public class ManageDistributorJPanel extends javax.swing.JPanel {
             Distributor distributor = adAssignment.getDistributor();
             AirlineCompany airline = adAssignment.getAirlineCompany();
 
-            Object[] row = new Object[3];
+            Object[] row = new Object[4];
             row[0] = distributor.getId();
             row[1] = distributor.getName();
             row[2] = airline.getName(); // get company name from ADAssignment
+            double discountRate = distributor.getDiscountRate();
+            String formattedDiscount = String.format("%.2f%% off", discountRate * 100);
+            row[3] = formattedDiscount;
             model.addRow(row);
         }
     }

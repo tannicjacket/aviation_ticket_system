@@ -270,7 +270,7 @@ public class PriceManagementJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No associated airline company found.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
         boolean anyFlightAdjusted = false;
 
         // Adjust prices based on selection
